@@ -1,0 +1,13 @@
+unit uClienteControl;
+
+interface
+
+uses uClienteModel;
+type
+  TClienteControl = class
+  private
+    FClienteModel: TCliente;
+  end;
+implementation
+
+end.
