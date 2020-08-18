@@ -17,28 +17,28 @@ object frmCadastroCliente: TfrmCadastroCliente
   TextHeight = 13
   object Label1: TLabel
     Left = 24
-    Top = 91
+    Top = 59
     Width = 27
     Height = 13
     Caption = 'Nome'
   end
   object Label2: TLabel
     Left = 24
-    Top = 41
+    Top = 9
     Width = 33
     Height = 13
     Caption = 'C'#243'digo'
   end
   object edtCodigo: TEdit
     Left = 24
-    Top = 56
+    Top = 24
     Width = 121
     Height = 21
     TabOrder = 0
   end
   object edtNome: TEdit
     Left = 24
-    Top = 104
+    Top = 72
     Width = 241
     Height = 21
     TabOrder = 1
@@ -55,6 +55,33 @@ object frmCadastroCliente: TfrmCadastroCliente
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+  end
+  object btnIncluir: TButton
+    Left = 24
+    Top = 112
+    Width = 75
+    Height = 25
+    Caption = 'Incluir'
+    TabOrder = 3
+    OnClick = btnIncluirClick
+  end
+  object btnAlterar: TButton
+    Left = 105
+    Top = 112
+    Width = 75
+    Height = 25
+    Caption = 'Alterar'
+    TabOrder = 4
+    OnClick = btnAlterarClick
+  end
+  object btnExcluir: TButton
+    Left = 186
+    Top = 112
+    Width = 75
+    Height = 25
+    Caption = 'Excluir'
+    TabOrder = 5
+    OnClick = btnExcluirClick
   end
   object mmTableClientes: TFDMemTable
     FetchOptions.AssignedValues = [evMode]
