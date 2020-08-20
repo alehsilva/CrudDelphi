@@ -65,7 +65,7 @@ var
 begin
   VQry := FConexao.CriarQuery();
   try
-    VQry.Open('select gen_id(gen_cliente_id, ' + IntToStr(AAutoIncrementar) + ' ) from rdb$database');
+    VQry.Open('select gen_id(COD_CLI, ' + IntToStr(AAutoIncrementar) + ' ) from rdb$database');
     try
       Result := VQry.Fields[0].AsInteger;
     finally

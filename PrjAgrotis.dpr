@@ -8,7 +8,13 @@ uses
   uClienteModel in 'Model\uClienteModel.pas' {$R *.res},
   uFrmCliente in 'View\uFrmCliente.pas' {frmCadastroCliente},
   uClienteDao in 'Dao\uClienteDao.pas',
-  uClienteControl in 'Controller\uClienteControl.pas';
+  uClienteControl in 'Controller\uClienteControl.pas',
+  uProdutoDao in 'Dao\uProdutoDao.pas',
+  uProdutoModel in 'Model\uProdutoModel.pas',
+  uProdutoControl in 'Controller\uProdutoControl.pas',
+  uFrmProduto in 'View\uFrmProduto.pas' {frmCadastroProduto},
+  uPedidoModel in 'Model\uPedidoModel.pas',
+  uItensPedidoModel in 'Model\uItensPedidoModel.pas';
 
 {$R *.res}
 

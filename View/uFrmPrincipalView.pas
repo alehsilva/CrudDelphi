@@ -6,13 +6,15 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uConexao, Vcl.StdCtrls, Vcl.ToolWin,
   Vcl.ActnMan, Vcl.ActnCtrls, Vcl.ActnMenus, System.Actions, Vcl.ActnList, Vcl.Menus,
-  uFrmCliente;
+  uFrmCliente, uFrmProduto;
 type
   TForm1 = class(TForm)
     MainMenu1: TMainMenu;
     Cadastro1: TMenuItem;
     Cliente1: TMenuItem;
+    Produtos1: TMenuItem;
     procedure Cliente1Click(Sender: TObject);
+    procedure Produtos1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,6 +36,17 @@ begin
     frmCadastroCliente.ShowModal;
   finally
     frmCadastroCliente.Release;
+  end;
+end;
+
+procedure TForm1.Produtos1Click(Sender: TObject);
+begin
+  Application.CreateForm(TfrmCadastroProduto, frmCadastroProduto);
+  try
+    frmCadastroProduto.ShowModal;
+  finally
+    frmCadastroProduto.Release;
+
   end;
 end;
 

@@ -1,0 +1,52 @@
+unit uItensPedidoModel;
+
+interface
+
+type
+  TItensPedidoModel = class
+    private
+    FValorUnitario: Double;
+    FQuantidade: Double;
+    FCodProduto: Integer;
+
+    procedure SetCodProduto(const Value: Integer);
+    procedure SetQuantidade(const Value: Double);
+    procedure SetValorUnitario(const Value: Double);
+
+    public
+      property CodPedido : Integer;
+      property CodProduto : Integer read FCodProduto write SetCodProduto;
+      property Quantidade : Double read FQuantidade write SetQuantidade;
+      property ValorUnitario : Double read FValorUnitario write SetValorUnitario;
+
+      function TotalItem(ValorUnitario: Double; Quantidade: Double) : Double;
+  end;
+
+implementation
+
+{ TItensPedidoModel }
+
+procedure TItensPedidoModel.SetCodProduto(const Value: Integer);
+begin
+  FCodProduto := Value;
+end;
+
+procedure TItensPedidoModel.SetQuantidade(const Value: Double);
+begin
+  FQuantidade := Value;
+end;
+
+procedure TItensPedidoModel.SetValorUnitario(const Value: Double);
+begin
+  FValorUnitario := Value;
+end;
+
+function TItensPedidoModel.TotalItem(ValorUnitario, Quantidade: Double): Double;
+var
+  Total : Double;
+begin
+  Total := (Quantidade * ValorUnitario);
+  Result := Total;
+end;
+
+end.

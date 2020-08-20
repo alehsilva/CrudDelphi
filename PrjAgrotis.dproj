@@ -107,6 +107,29 @@
         </DCCReference>
         <DCCReference Include="Dao\uClienteDao.pas"/>
         <DCCReference Include="Controller\uClienteControl.pas"/>
+        <DCCReference Include="Dao\uProdutoDao.pas"/>
+        <DCCReference Include="Model\uProdutoModel.pas"/>
+        <DCCReference Include="Controller\uProdutoControl.pas"/>
+        <DCCReference Include="View\uFrmProduto.pas">
+            <Form>frmCadastroProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Model\uPedidoModel.pas"/>
+        <DCCReference Include="Model\uItensPedidoModel.pas"/>
+        <None Include="ModelSupport_PrjAgrotis\default.txaPackage"/>
+        <None Include="ModelSupport_PrjAgrotis\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uProdutoControl\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uClienteModel\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uClienteControl\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uFrmPrincipalView\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uConexao\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uProdutoDao\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uClienteDao\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uFrmCliente\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uEnumerado\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uProdutoModel\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\uFrmProduto\default.txvpck"/>
+        <None Include="ModelSupport_PrjAgrotis\PrjAgrotis\default.txvpck"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -136,6 +159,90 @@
                 <DeployFile LocalName="Win32\Debug\PrjAgrotis.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>PrjAgrotis.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uProdutoDao\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uClienteDao\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uConexao\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uFrmProduto\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\default.txaPackage" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uFrmPrincipalView\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\PrjAgrotis\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uProdutoModel\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uProdutoControl\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uClienteModel\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uEnumerado\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uFrmCliente\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="ModelSupport_PrjAgrotis\uClienteControl\default.txvpck" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -969,6 +1076,7 @@
             <Platforms>
                 <Platform value="Win32">True</Platform>
             </Platforms>
+            <ModelSupport>True</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

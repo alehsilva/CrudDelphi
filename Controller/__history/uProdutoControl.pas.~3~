@@ -1,0 +1,16 @@
+unit uProdutoControl;
+
+interface
+uses
+  uProdutoModel, System.SysUtils, FireDAC.Comp.Client;
+
+  type
+    TProdutoControl = class
+      private
+       FProdutoModel : TProdutoModel;
+      public
+    end;
+
+implementation
+
+end.
