@@ -1,0 +1,15 @@
+unit uPedidoControl;
+
+interface
+
+uses uPedidoModel;
+type
+  TPedidoControl = class
+    private
+      FPedidoModel : TPedidoModel;
+    public
+
+  end;
+implementation
+
+end.

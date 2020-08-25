@@ -116,6 +116,18 @@
         </DCCReference>
         <DCCReference Include="Model\uPedidoModel.pas"/>
         <DCCReference Include="Model\uItensPedidoModel.pas"/>
+        <DCCReference Include="View\uFrmPedidoProduto.pas">
+            <Form>PedidoProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="View\uFrmPedido.pas">
+            <Form>frmPedido</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Dao\uPedidoDao.pas"/>
+        <DCCReference Include="Controller\uPedidoControl.pas"/>
+        <DCCReference Include="Controller\uItensPedidoControl.pas"/>
+        <DCCReference Include="Dao\uItensPedidoDao.pas"/>
         <None Include="ModelSupport_PrjAgrotis\default.txaPackage"/>
         <None Include="ModelSupport_PrjAgrotis\default.txvpck"/>
         <None Include="ModelSupport_PrjAgrotis\uProdutoControl\default.txvpck"/>

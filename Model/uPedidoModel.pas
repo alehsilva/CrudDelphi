@@ -3,45 +3,37 @@ unit uPedidoModel;
 interface
 
 uses
-  DateUtils, uItensPedidoModel, System.SysUtils, System.Generics.Collections,
-  uProdutoModel;
+  DateUtils, uItensPedidoModel, System.SysUtils, System.Generics.Collections;
 
 type
   TPedidoModel = class
   private
     FCodCliente: Integer;
-    FCodigo: Integer;
-    FDataEmi: TDate;
+    FCod_Ped: Integer;
     FNumeroPedido: Integer;
     FReferencia: String;
     FTipoOperacao: Integer;
+    FTotalPedido: Double;
 
-    procedure SetCodigo(const Value: Integer);
-    procedure SetFCodCliente(const Value: Integer);
-    procedure SetFDataEmi(const Value: TDate);
-    procedure SetFNumeroPedido(const Value: Integer);
-    procedure SetFTipoOperacao(const Value: Integer);
-    procedure SetReferencia(const Value: String);
     procedure SetCodCliente(const Value: Integer);
-    procedure SetDataEmi(const Value: TDate);
+    procedure SetCod_Ped(const Value: Integer);
     procedure SetNumeroPedido(const Value: Integer);
-    procedure SetTipoOperacao(const Value: Integer);
+    procedure SetReferencia(const Value: String);
+    procedure SetTipoOperacao(const Value: IntegeR);
+    procedure SetTotalPedido(const Value: Double);
+
 
 
   public
-    property Codigo : Integer read FCodigo write SetCodigo;
+    property Codigo : Integer read FCod_Ped write SetCod_Ped;
     property Referencia : String read FReferencia write SetReferencia;
     property NumeroPedido: Integer read FNumeroPedido write SetNumeroPedido;
-    property DataEmi: TDate read FDataEmi write SetDataEmi;
-    property CodCliente: Integer read FCodCliente write SetCodCliente;
-    property TipoOperacao: Integer read FTipoOperacao write SetTipoOperacao;
+    property CodCliente: Integer read FCodCliente write FCodCliente;
+    property TipoOperacao: IntegeR read FTipoOperacao write SetTipoOperacao;
+    property TotalPedido : Double read FTotalPedido write SetTotalPedido;
 
-
-    constructor Create;
-    destructor Destroy ; override;
-
-
-
+    function GetId : Integer;
+    function SalvarPedido : Boolean;
 
   end;
 
@@ -50,19 +42,31 @@ implementation
 
 { TPedidoModel }
 
+uses uPedidoDao;
 
 
-
-
-constructor TPedidoModel.Create;
+function TPedidoModel.GetId: Integer;
+var
+VPedidoDao : TPedidoDao;
 begin
-
+   VPedidoDao := TPedidoDao.Create;
+   try
+     Result := VPedidoDao.GetId();
+   finally
+     VPedidoDao.Free;
+   end;
 end;
 
-destructor TPedidoModel.Destroy;
-begin
 
-  inherited;
+function TPedidoModel.SalvarPedido: Boolean;
+var VPedido : TPedidoDao;
+begin
+    VPedido := TPedidoDao.Create;
+    try
+        Result :=  VPedido.SalvarPedido(Self);
+    finally
+    VPedido.Free;
+    end;
 end;
 
 procedure TPedidoModel.SetCodCliente(const Value: Integer);
@@ -70,35 +74,11 @@ begin
   FCodCliente := Value;
 end;
 
-procedure TPedidoModel.SetCodigo(const Value: Integer);
+procedure TPedidoModel.SetCod_Ped(const Value: Integer);
 begin
-
+  FCod_Ped := Value;
 end;
 
-procedure TPedidoModel.SetDataEmi(const Value: TDate);
-begin
-  FDataEmi := Value;
-end;
-
-procedure TPedidoModel.SetFCodCliente(const Value: Integer);
-begin
-
-end;
-
-procedure TPedidoModel.SetFDataEmi(const Value: TDate);
-begin
-
-end;
-
-procedure TPedidoModel.SetFNumeroPedido(const Value: Integer);
-begin
-
-end;
-
-procedure TPedidoModel.SetFTipoOperacao(const Value: Integer);
-begin
-
-end;
 
 procedure TPedidoModel.SetNumeroPedido(const Value: Integer);
 begin
@@ -107,12 +87,17 @@ end;
 
 procedure TPedidoModel.SetReferencia(const Value: String);
 begin
-
+  FReferencia := Value;
 end;
 
-procedure TPedidoModel.SetTipoOperacao(const Value: Integer);
+procedure TPedidoModel.SetTipoOperacao(const Value: IntegeR);
 begin
   FTipoOperacao := Value;
+end;
+
+procedure TPedidoModel.SetTotalPedido(const Value: Double);
+begin
+  FTotalPedido := Value;
 end;
 
 end.

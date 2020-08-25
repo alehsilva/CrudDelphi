@@ -1,0 +1,94 @@
+object PedidoProduto: TPedidoProduto
+  Left = 0
+  Top = 0
+  Caption = 'Produtos'
+  ClientHeight = 176
+  ClientWidth = 341
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 57
+    Top = 17
+    Width = 38
+    Height = 13
+    Caption = 'Produto'
+  end
+  object Quantidade: TLabel
+    Left = 57
+    Top = 73
+    Width = 56
+    Height = 13
+    Caption = 'Quantidade'
+  end
+  object Label2: TLabel
+    Left = 168
+    Top = 73
+    Width = 64
+    Height = 13
+    Caption = 'Valor Unit'#225'rio'
+  end
+  object DBLProdutos: TDBLookupComboBox
+    Left = 58
+    Top = 36
+    Width = 217
+    Height = 21
+    DataField = 'COD_PROD'
+    DataSource = frmPedido.dsItens
+    KeyField = 'COD_PROD'
+    ListField = 'DESC_PROD'
+    ListSource = dsProdutos
+    TabOrder = 0
+  end
+  object btnInserir: TButton
+    Left = 56
+    Top = 123
+    Width = 75
+    Height = 25
+    Caption = 'Inserir'
+    TabOrder = 1
+    OnClick = btnInserirClick
+  end
+  object btnCancelar: TButton
+    Left = 182
+    Top = 123
+    Width = 75
+    Height = 25
+    Caption = 'Cancelar'
+    TabOrder = 2
+  end
+  object edtQtde: TEdit
+    Left = 56
+    Top = 88
+    Width = 89
+    Height = 21
+    TabOrder = 3
+  end
+  object edtVlrUnitario: TMaskEdit
+    Left = 168
+    Top = 88
+    Width = 106
+    Height = 21
+    EditMask = '00,00;1;_'
+    MaxLength = 5
+    TabOrder = 4
+    Text = '  ,  '
+  end
+  object dsProdutos: TDataSource
+    DataSet = queryProdutos
+    Left = 288
+    Top = 72
+  end
+  object queryProdutos: TFDQuery
+    Left = 288
+    Top = 24
+  end
+end

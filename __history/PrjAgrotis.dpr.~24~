@@ -1,0 +1,28 @@
+program PrjAgrotis;
+
+uses
+  Vcl.Forms,
+  uFrmPrincipalView in 'View\uFrmPrincipalView.pas' {Form1},
+  uConexao in 'Dao\uConexao.pas',
+  uEnumerado in 'Model\uEnumerado.pas',
+  uClienteModel in 'Model\uClienteModel.pas' {$R *.res},
+  uFrmCliente in 'View\uFrmCliente.pas' {frmCadastroCliente},
+  uClienteDao in 'Dao\uClienteDao.pas',
+  uClienteControl in 'Controller\uClienteControl.pas',
+  uProdutoDao in 'Dao\uProdutoDao.pas',
+  uProdutoModel in 'Model\uProdutoModel.pas',
+  uProdutoControl in 'Controller\uProdutoControl.pas',
+  uFrmProduto in 'View\uFrmProduto.pas' {frmCadastroProduto},
+  uPedidoModel in 'Model\uPedidoModel.pas',
+  uItensPedidoModel in 'Model\uItensPedidoModel.pas',
+  uFrmPedidoProduto in 'View\uFrmPedidoProduto.pas' {PedidoProduto};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TPedidoProduto, PedidoProduto);
+  Application.Run;
+end.

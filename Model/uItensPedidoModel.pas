@@ -11,37 +11,62 @@ type
     FQuantidade: Double;
     FCodPedido: Integer;
     FProduto: TProdutoModel;
+    FVlrTotalItem: Double;
+    FCodProduto: Integer;
+
 
     procedure SetCodPedido(const Value: Integer);
     procedure SetQuantidade(const Value: Double);
     procedure SetValorUnitario(const Value: Double);
-    procedure SetProduto(const Value: TProdutoModel);
+    procedure SetVlrTotalItem(const Value: Double);
+    procedure SetCodProduto(const Value: Integer);
 
 
     public
+
+      property CodProduto : Integer read FCodProduto write SetCodProduto;
       property CodPedido : Integer read FCodPedido write SetCodPedido;
       property Quantidade : Double read FQuantidade write SetQuantidade;
       property ValorUnitario : Double read FValorUnitario write SetValorUnitario;
+      property VlrTotalItem : Double read FVlrTotalItem write SetVlrTotalItem;
 
-      property Produto : TProdutoModel read FProduto write SetProduto;
+
 
       function TotalItem(ValorUnitario: Double; Quantidade: Double) : Double;
+      function SalvarItem : Boolean;
   end;
 
 implementation
 
 { TItensPedidoModel }
 
+uses uItensPedidoDao;
+
+
+function TItensPedidoModel.SalvarItem: Boolean;
+var
+  VItensPedido : TItensPedidoDao;
+begin
+  Result := False;
+  VItensPedido := TItensPedidoDao.Create;
+    try
+      Result :=  VItensPedido.SalvarItens(Self);
+    finally
+      VItensPedido.Free;
+    end;
+end;
+
 procedure TItensPedidoModel.SetCodPedido(const Value: Integer);
 begin
-  FCodPedido := Value;
+    FCodPedido := Value;
 end;
 
-
-procedure TItensPedidoModel.SetProduto(const Value: TProdutoModel);
+procedure TItensPedidoModel.SetCodProduto(const Value: Integer);
 begin
-  FProduto := Value;
+     FCodProduto := Value;
 end;
+
+
 
 procedure TItensPedidoModel.SetQuantidade(const Value: Double);
 begin
@@ -51,6 +76,11 @@ end;
 procedure TItensPedidoModel.SetValorUnitario(const Value: Double);
 begin
   FValorUnitario := Value;
+end;
+
+procedure TItensPedidoModel.SetVlrTotalItem(const Value: Double);
+begin
+  FVlrTotalItem := Value;
 end;
 
 function TItensPedidoModel.TotalItem(ValorUnitario, Quantidade: Double): Double;

@@ -1,0 +1,18 @@
+unit uItensPedidoControl;
+
+interface
+
+uses uItensPedidoModel;
+  type
+    TItensPedidoControl = class
+      private
+        FItensPedidoModel : TItensPedidoModel;
+      public
+
+        constructor Create;
+        destructor Destroy; override;
+    end;
+
+implementation
+
+end.

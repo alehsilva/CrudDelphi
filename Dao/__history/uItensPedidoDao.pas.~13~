@@ -1,0 +1,44 @@
+unit uItensPedidoDao;
+
+interface
+
+uses
+  FireDAC.Comp.Client, uConexao, System.SysUtils,
+  uItensPedidoModel;
+
+type
+  TItensPedidoDao = class
+    private
+      FConexao : TConexao;
+    public
+      constructor Create;
+
+      function SalvarItens(AItensPedidoModel : TItensPedidoModel) : Boolean;
+  end;
+implementation
+
+{ TItensPedidoDao }
+
+constructor TItensPedidoDao.Create;
+begin
+  FConexao := TConexao.Create;
+end;
+
+function TItensPedidoDao.SalvarItens(AItensPedidoModel: TItensPedidoModel): Boolean;
+var
+  Vqry: TFDQuery;
+begin
+  Vqry := FConexao.CriarQuery();
+  try
+    Vqry.ExecSQL('insert into ORDTRANS'
+    + '(COD_PROD, QUANTIDADE, UNITARIO, TOTALITEM, COD_PED )'
+    + 'values (:CodProduto, :Quantidade, :ValorUnitario, :VlrTotalItem, :CodPedido)',
+     [AItensPedidoModel.CodProduto, AItensPedidoModel.Quantidade, AItensPedidoModel.ValorUnitario, AItensPedidoModel.VlrTotalItem, AItensPedidoModel.CodPedido]);
+    Result := True;
+  finally
+    Vqry.Free;
+  end;
+end;
+
+
+end.

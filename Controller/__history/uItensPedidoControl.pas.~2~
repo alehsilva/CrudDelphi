@@ -1,0 +1,14 @@
+unit uItensPedidoControl;
+
+interface
+
+uses uItensPedidoModel;
+  type
+    TItensPedidoControl = class
+      private
+        FItensPedidoModel : TItensPedidoModel;
+    end;
+
+implementation
+
+end.

@@ -1,0 +1,32 @@
+unit uItensPedidoDao;
+
+interface
+
+uses
+  FireDAC.Comp.Client, uConexao, System.SysUtils, uProdutoModel,
+  uItensPedidoModel;
+
+type
+  TItensPedidoDao = class
+    private
+      FConexao : TConexao;
+    public
+      constructor Create;
+
+      function SalvarItens(AItensPedidoModel : TItensPedidoModel) : Boolean;
+  end;
+implementation
+
+{ TItensPedidoDao }
+
+constructor TItensPedidoDao.Create;
+begin
+  FConexao := TConexao.Create;
+end;
+
+function TItensPedidoDao.SalvarItens(AItensPedidoModel: TItensPedidoModel): Boolean;
+begin
+
+end;
+
+end.

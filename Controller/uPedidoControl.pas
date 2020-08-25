@@ -1,0 +1,54 @@
+unit uPedidoControl;
+
+interface
+
+uses uPedidoModel;
+
+type
+  TPedidoControl = class
+  private
+    FPedidoModel: TPedidoModel;
+    procedure SetPedidoModel(const Value: TPedidoModel);
+  public
+
+    constructor Create;
+    destructor Destroy; override;
+
+    function GetId: Integer;
+    function SalvarPedido: Boolean;
+
+    property PedidoModel: TPedidoModel read FPedidoModel write SetPedidoModel;
+
+  end;
+
+implementation
+
+{ TPedidoControl }
+
+constructor TPedidoControl.Create;
+begin
+  FPedidoModel := TPedidoModel.Create;
+end;
+
+destructor TPedidoControl.Destroy;
+begin
+
+  inherited;
+end;
+
+function TPedidoControl.GetId: Integer;
+begin
+  Result := FPedidoModel.GetId;
+end;
+
+function TPedidoControl.SalvarPedido: Boolean;
+begin
+  Result := FPedidoModel.SalvarPedido;
+end;
+
+procedure TPedidoControl.SetPedidoModel(const Value: TPedidoModel);
+begin
+  FPedidoModel := Value;
+end;
+
+end.

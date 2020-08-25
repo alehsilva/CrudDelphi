@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Agrotis Teste'
-  ClientHeight = 376
-  ClientWidth = 609
+  ClientHeight = 238
+  ClientWidth = 591
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,6 +24,13 @@ object Form1: TForm1
       object Produtos1: TMenuItem
         Caption = 'Produtos'
         OnClick = Produtos1Click
+      end
+    end
+    object Pedido1: TMenuItem
+      Caption = 'Pedido'
+      object CadastrarPedido1: TMenuItem
+        Caption = 'Cadastrar Pedido'
+        OnClick = CadastrarPedido1Click
       end
     end
   end

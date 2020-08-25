@@ -14,7 +14,13 @@ uses
   uProdutoControl in 'Controller\uProdutoControl.pas',
   uFrmProduto in 'View\uFrmProduto.pas' {frmCadastroProduto},
   uPedidoModel in 'Model\uPedidoModel.pas',
-  uItensPedidoModel in 'Model\uItensPedidoModel.pas';
+  uItensPedidoModel in 'Model\uItensPedidoModel.pas',
+  uFrmPedidoProduto in 'View\uFrmPedidoProduto.pas' {PedidoProduto},
+  uFrmPedido in 'View\uFrmPedido.pas' {frmPedido},
+  uPedidoDao in 'Dao\uPedidoDao.pas',
+  uPedidoControl in 'Controller\uPedidoControl.pas',
+  uItensPedidoControl in 'Controller\uItensPedidoControl.pas',
+  uItensPedidoDao in 'Dao\uItensPedidoDao.pas';
 
 {$R *.res}
 
@@ -22,5 +28,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TPedidoProduto, PedidoProduto);
+  Application.CreateForm(TfrmPedido, frmPedido);
   Application.Run;
 end.

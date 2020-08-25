@@ -1,0 +1,43 @@
+unit uPedidoControl;
+
+interface
+uses
+   System.SysUtils, FireDAC.Comp.Client, uPedidoModel;
+
+implementation
+
+  type
+    TPedidoControl = class
+      private
+        FPedidoModel :  TPedidoModel;
+
+      public
+        constructor Create;
+        destructor Destroy; override;
+
+        function GetId : Integer;
+
+        property PedidoModel : TPedidoModel read FPedidoModel write FPedidoModel;
+    end;
+
+{ TProdutoControl }
+
+constructor TPedidoControl.Create;
+begin
+  FPedidoModel := TPedidoModel.Create;
+end;
+
+destructor TPedidoControl.Destroy;
+begin
+    FPedidoModel.Free;
+  inherited;
+end;
+
+
+function TPedidoControl.GetId: Integer;
+begin
+   Result := FPedidoModel.GetId();
+end;
+
+
+end.
