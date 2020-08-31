@@ -1,0 +1,113 @@
+unit uClienteDao;
+
+interface
+
+uses
+  FireDAC.Comp.Client, uConexao, uClienteModel, System.SysUtils;
+
+type
+  TClienteDao = class
+  private
+    FConexao: TConexao;
+
+  public
+    constructor Create;
+
+    function Obter: TFDQuery;
+    function Incluir(AClienteModel: TClienteModel): Boolean;
+    function Alterar(AClienteModel: TClienteModel): Boolean;
+    function Deletar(AClienteModel: TClienteModel): Boolean;
+    function GetId(AAutoIncrementar: Integer): Integer;
+
+  end;
+
+implementation
+
+{ TClienteDao }
+
+function TClienteDao.Alterar(AClienteModel: TClienteModel): Boolean;
+var
+  Vqry: TFDQuery;
+begin
+  Vqry := FConexao.CriarQuery();
+  try
+    Vqry.ExecSQL('UPDATE CLIENTES SET NOME = :NOME WHERE (COD_CLI = :Codigo)',
+      [AClienteModel.Nome, AClienteModel.Codigo]);
+
+    Result := True;
+  finally
+    Vqry.Free;
+  end;
+end;
+
+constructor TClienteDao.Create;
+begin
+  FConexao := TConexao.Create;
+end;
+
+function TClienteDao.Deletar(AClienteModel: TClienteModel): Boolean;
+var
+  Vqry: TFDQuery;
+begin
+  Vqry := FConexao.CriarQuery();
+  try
+    try
+      Vqry.ExecSQL('DELETE FROM CLIENTES WHERE (COD_CLI = :Codigo)',
+        [AClienteModel.Codigo]);
+    except
+      on E: Exception do
+
+    end;
+
+    Result := True;
+  finally
+    Vqry.Free;
+  end;
+end;
+
+function TClienteDao.GetId(AAutoIncrementar: Integer): Integer;
+var
+  Vqry: TFDQuery;
+begin
+  Vqry := FConexao.CriarQuery();
+  try
+    Vqry.Open('select gen_id(COD_CLI, ' + IntToStr(AAutoIncrementar) +
+      ' ) from rdb$database');
+    try
+      Result := Vqry.Fields[0].AsInteger;
+    finally
+      Vqry.Close;
+    end;
+  finally
+    Vqry.Free;
+  end;
+end;
+
+function TClienteDao.Incluir(AClienteModel: TClienteModel): Boolean;
+var
+  Vqry: TFDQuery;
+begin
+  Vqry := FConexao.CriarQuery();
+  try
+    Vqry.ExecSQL('INSERT INTO CLIENTES (NOME) VALUES (:NOME)',
+      [AClienteModel.Nome]);
+
+    Result := True;
+  finally
+    Vqry.Free;
+  end;
+
+end;
+
+function TClienteDao.Obter: TFDQuery;
+var
+  Vqry: TFDQuery;
+begin
+  Vqry := FConexao.CriarQuery();
+
+  Vqry.Open('SELECT * FROM CLIENTES');
+
+  Result := Vqry;
+end;
+
+end.

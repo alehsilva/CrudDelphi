@@ -1,0 +1,74 @@
+object frmCadastroCliente: TfrmCadastroCliente
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Clientes'
+  ClientHeight = 263
+  ClientWidth = 541
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBGrid1: TDBGrid
+    Left = 96
+    Top = 24
+    Width = 425
+    Height = 217
+    DataSource = dsClientes
+    TabOrder = 0
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object btnIncluir: TButton
+    Left = 8
+    Top = 24
+    Width = 75
+    Height = 25
+    Caption = 'Incluir'
+    TabOrder = 1
+    OnClick = btnIncluirClick
+  end
+  object btnAlterar: TButton
+    Left = 8
+    Top = 64
+    Width = 75
+    Height = 25
+    Caption = 'Alterar'
+    TabOrder = 2
+    OnClick = btnAlterarClick
+  end
+  object btnExcluir: TButton
+    Left = 8
+    Top = 104
+    Width = 75
+    Height = 25
+    Caption = 'Excluir'
+    TabOrder = 3
+    OnClick = btnExcluirClick
+  end
+  object mmTableClientes: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 568
+    Top = 16
+  end
+  object dsClientes: TDataSource
+    DataSet = mmTableClientes
+    Left = 616
+    Top = 16
+  end
+end
